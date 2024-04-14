@@ -1,0 +1,14 @@
+<form [formGroup]="userform" >
+  <h3>Reactive Form in Angular</h3>
+  <label>Firstname :</label><input type="text" placeholder="Firstname" formControlName="Firstname"><br>
+  <span *ngIf="userform.controls['Firstname'].errors?.['required']" style="color:red">Enter the Name </span>
+  <span *ngIf="userform.controls['Firstname'].errors?.['pattern']" style="color:red"> Name Shoud have Only Alphabets and Space</span>
+  <br>
+  <label>LastName : </label><input type="text" placeholder="Lastname" formControlName="lastname"><br>
+  <span *ngIf="userform.controls['lastname'].invalid" style="color:red">Enter the  Last name</span><br>
+  <label>Email Addr: </label><input type="text" placeholder="Email" formControlName="email"><br>
+  <span   *ngIf="userform.controls['email'].invalid" style="color:red">Enter the  Valid email</span><br>
+  <label>PhoneNum : </label><input type="text" placeholder="Mobile Number" formControlName="phonno"><br>
+  <span *ngIf="userform.controls['phonno'].invalid" style="color:red">Enter the valid phone number</span><br>
+  <button [disabled]="userform.invalid" (click)="check()">Submit</button>
+  </form>
